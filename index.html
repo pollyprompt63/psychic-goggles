@@ -23,6 +23,18 @@
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') keepAwake();
     });
+
+    // Left/right (arrow key) input cycles through the images, wrapping at both ends.
+    const images = ['bigstairs_2_green.png', 'bigstairs_4_green.png'];
+    let i = 0;
+    const img = document.querySelector('img');
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') i = (i + 1) % images.length;
+      else if (e.key === 'ArrowLeft') i = (i - 1 + images.length) % images.length;
+      else return;
+      img.src = images[i];
+      e.preventDefault();
+    });
   </script>
 </body>
 </html>

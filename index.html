@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Display Image</title>
+  <title>Meta Display Image</title>
   <meta name="viewport" content="width=600, height=600, initial-scale=1.0, user-scalable=no">
   <meta name="description" content="Renders a single 600 x 600 image">
   <meta name="mrbd-web-app-capable" content="yes">
@@ -14,5 +14,15 @@
 </head>
 <body>
   <img src="bigstairs_2_green.png" width="600" height="600" alt="">
+  <script>
+    // Experimental: keep the display on. Support on Meta Ray-Ban Display is undocumented.
+    async function keepAwake() {
+      try { await navigator.wakeLock.request('screen'); } catch (e) { /* unsupported or denied */ }
+    }
+    keepAwake();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') keepAwake();
+    });
+  </script>
 </body>
 </html>

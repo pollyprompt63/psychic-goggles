@@ -13,9 +13,8 @@
   </style>
 </head>
 <body>
-  <img src="bigstairs_2_green.png" width="600" height="600" alt="">
+  <img src="box_G255.png" width="600" height="600" alt="">
   <script>
-    // Experimental: keep the display on. Support on Meta Ray-Ban Display is undocumented.
     async function keepAwake() {
       try { await navigator.wakeLock.request('screen'); } catch (e) { /* unsupported or denied */ }
     }
@@ -25,7 +24,24 @@
     });
 
     // Left/right (arrow key) input cycles through the images, wrapping at both ends.
-    const images = ['bigstairs_2_green.png', 'bigstairs_4_green.png'];
+    const images = [
+      'bigstairs_2_green.png', 
+      'bigstairs_4_green.png',
+      'square_1x1_G255_2deg_rot0.png',
+      'square_3x3_G255_2deg_rot0.png',
+      'circle_1x1_W255_R0p75deg.png',
+      'circle_3x3_W255_R0p75deg.png',
+      'alcm_W_clip.png',
+      'alcm_W_inv_clip.png',
+      'solid_R255.png',
+      'solid_G255.png',
+      'solid_B255.png',
+      'solid_W255.png',
+      'box_R255.png',
+      'box_B255.png',
+      'box_W255.png',
+      'box_G255.png'
+    ];
     let i = 0;
     const img = document.querySelector('img');
     document.addEventListener('keydown', e => {
